@@ -32,14 +32,14 @@ def init_conversation():
             Stay in character and always introduce yourself as StrataBot when responding.''']}]
 
 init_conversation()
-
+#This API call is written in such way that history of conversation is remembered by the the model (Chain-of-taughts knowledge) 
 def api_call(prompt):
     conversation.append({"role": "user", "parts": [prompt]})
     response = model.generate_content(conversation)
     final_output = response.text
     conversation.append({"role": "assistant", "parts": [final_output]})
     return final_output
-
+#This happens when a new file is added
 def new_file(filename):
     if '.pdf' in filename:
         # PDF
