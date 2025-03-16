@@ -3,8 +3,8 @@ import pandas as pd
 import pdfplumber
 import camelot
 import json
-api_key="AIzaSyAryPtRQUMCOSnVx-R9E5KfDdCVd0ELQj8"
-genai.configure(api_key=api_key)  
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=GOOGLE_API_KEY)  
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 def api_call(prompt):

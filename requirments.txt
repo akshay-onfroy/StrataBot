@@ -1,0 +1,7 @@
+Flask
+Werkzeug
+google-generativeai
+pandas
+pdfplumber
+camelot-py[cv]
+openpyxl

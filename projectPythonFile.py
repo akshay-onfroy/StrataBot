@@ -20,8 +20,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 uploaded_files = []
 
 # Initialize Gemini API
-api_key = "AIzaSyAryPtRQUMCOSnVx-R9E5KfDdCVd0ELQj8"
-genai.configure(api_key=api_key)
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 # Initialize conversation
