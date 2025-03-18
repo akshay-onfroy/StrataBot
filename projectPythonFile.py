@@ -7,6 +7,7 @@ from datetime import datetime
 import pdfplumber
 import camelot
 import json
+import re
 
 app = Flask(__name__)
 
@@ -36,9 +37,13 @@ init_conversation()
 def api_call(prompt):
     conversation.append({"role": "user", "parts": [prompt]})
     response = model.generate_content(conversation)
-    final_output = response.text
-    conversation.append({"role": "assistant", "parts": [final_output]})
-    return final_output
+    final_output = response.text.strip()  # Remove leading and trailing whitesp>
+
+    # Remove words within double asterisks (e.g., **text**)
+    clean_output = re.sub(r'\*\*(.*?)\*\*', r'\1', final_output)
+
+    conversation.append({"role": "assistant", "parts": [clean_output]})
+    return clean_output
 #This happens when a new file is added
 def new_file(filename):
     if '.pdf' in filename:
