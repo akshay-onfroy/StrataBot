@@ -13,7 +13,7 @@ pip install -r requirments.txt
 ```
 **Inferencing:**   
 Go to **Google AI Studios** and get an API key 
-then in the terminal of the repository \n
+then in the terminal of the repository 
 in Windows
 ```
 set GOOGLE_API_KEY=your_api_key
